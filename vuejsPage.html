@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div id="app" class="container">
+		
+		<counter subject="Likes"></counter>
+		<counter subject="DisLikes"></counter>
+
+	</div>
+
+	<template id="likeDislike">
+		<div>
+			<h2 v-text="subject"></h2>
+			<button type="button" class="btn btn-primary" @click="count += 1" v-text="count"></button>
+		</div>
+	</template>
+
+</body>
+</html>
+<!-- <script src="C:\Users\Developer\Desktop\VueJs.js"></script> -->
+<script>
+
+Vue.component('counter', {
+	template: '#likeDislike',
+	
+	props:['subject'],
+
+	data: function () {
+		return { count: 0 };
+	}
+})
+
+var vm = new Vue({
+
+	el: "#app"
+
+})
+</script>
